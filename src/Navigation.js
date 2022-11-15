@@ -6,6 +6,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomNavigationDrawer from './components/CustomNavigationDrawer';
 import CustomNavigationBar from './components/CustomNavigationBar';
 import ScreenBackground from './components/ScreenBackground';
+import CenterColumn from './components/CenterColumn';
 
 const linking = {
   config: {
@@ -32,10 +33,12 @@ function HomeRoot() {
   const navigation = useNavigation();
   return (
     <ScreenBackground>
-      <Text>HomeRoot</Text>
-      <Pressable onPress={() => navigation.navigate('HomeDetail')}>
-        <Text>Go to Detail</Text>
-      </Pressable>
+      <CenterColumn>
+        <Text>HomeRoot</Text>
+        <Pressable onPress={() => navigation.navigate('HomeDetail')}>
+          <Text>Go to Detail</Text>
+        </Pressable>
+      </CenterColumn>
     </ScreenBackground>
   );
 }
@@ -44,10 +47,12 @@ function HomeDetail() {
   const navigation = useNavigation();
   return (
     <ScreenBackground>
-      <Text>HomeDetail</Text>
-      <Pressable onPress={() => navigation.pop()}>
-        <Text>Back to HomeRoot</Text>
-      </Pressable>
+      <CenterColumn>
+        <Text>HomeDetail</Text>
+        <Pressable onPress={() => navigation.pop()}>
+          <Text>Back to HomeRoot</Text>
+        </Pressable>
+      </CenterColumn>
     </ScreenBackground>
   );
 }
@@ -55,7 +60,9 @@ function HomeDetail() {
 function OtherRoot() {
   return (
     <ScreenBackground>
-      <Text>OtherRoot</Text>
+      <CenterColumn>
+        <Text>OtherRoot</Text>
+      </CenterColumn>
     </ScreenBackground>
   );
 }
