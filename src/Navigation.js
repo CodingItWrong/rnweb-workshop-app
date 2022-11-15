@@ -1,12 +1,13 @@
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {Pressable} from 'react-native';
-import {Text} from 'react-native-paper';
+import {Button, Text} from 'react-native-paper';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomNavigationDrawer from './components/CustomNavigationDrawer';
 import CustomNavigationBar from './components/CustomNavigationBar';
 import ScreenBackground from './components/ScreenBackground';
 import CenterColumn from './components/CenterColumn';
+import ButtonGroup from './components/ButtonGroup';
 
 const linking = {
   config: {
@@ -35,9 +36,16 @@ function HomeRoot() {
     <ScreenBackground>
       <CenterColumn>
         <Text>HomeRoot</Text>
-        <Pressable onPress={() => navigation.navigate('HomeDetail')}>
-          <Text>Go to Detail</Text>
-        </Pressable>
+        <ButtonGroup>
+          <Button mode="outlined">Second</Button>
+          <Button mode="outlined">Third</Button>
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate('HomeDetail')}
+          >
+            Go to Detail
+          </Button>
+        </ButtonGroup>
       </CenterColumn>
     </ScreenBackground>
   );
