@@ -3,6 +3,7 @@ import {Pressable, Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomNavigationDrawer from './components/CustomNavigationDrawer';
+import CustomNavigationBar from './components/CustomNavigationBar';
 
 const linking = {
   config: {
@@ -56,7 +57,7 @@ function OtherRoot() {
 const HomeStack = createNativeStackNavigator();
 function Home() {
   return (
-    <HomeStack.Navigator>
+    <HomeStack.Navigator screenOptions={{header: CustomNavigationBar}}>
       <HomeStack.Screen
         name="HomeRoot"
         component={HomeRoot}
@@ -74,7 +75,7 @@ function Home() {
 const OtherStack = createNativeStackNavigator();
 function Other() {
   return (
-    <OtherStack.Navigator>
+    <OtherStack.Navigator screenOptions={{header: CustomNavigationBar}}>
       <OtherStack.Screen
         name="OtherRoot"
         component={OtherRoot}
@@ -87,7 +88,12 @@ function Other() {
 const Drawer = createDrawerNavigator();
 function NavigationContents() {
   return (
-    <Drawer.Navigator drawerContent={CustomNavigationDrawer}>
+    <Drawer.Navigator
+      drawerContent={CustomNavigationDrawer}
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Other" component={Other} />
     </Drawer.Navigator>
