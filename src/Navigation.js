@@ -8,6 +8,7 @@ const linking = {
     screens: {
       Home: {
         path: '/',
+        initialRouteName: 'HomeRoot',
         screens: {
           HomeRoot: '',
           HomeDetail: 'home/detail',
