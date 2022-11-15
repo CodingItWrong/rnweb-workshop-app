@@ -1,9 +1,11 @@
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import {Pressable, Text} from 'react-native';
+import {Pressable} from 'react-native';
+import {Text} from 'react-native-paper';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomNavigationDrawer from './components/CustomNavigationDrawer';
 import CustomNavigationBar from './components/CustomNavigationBar';
+import ScreenBackground from './components/ScreenBackground';
 
 const linking = {
   config: {
@@ -29,29 +31,33 @@ const linking = {
 function HomeRoot() {
   const navigation = useNavigation();
   return (
-    <>
+    <ScreenBackground>
       <Text>HomeRoot</Text>
       <Pressable onPress={() => navigation.navigate('HomeDetail')}>
         <Text>Go to Detail</Text>
       </Pressable>
-    </>
+    </ScreenBackground>
   );
 }
 
 function HomeDetail() {
   const navigation = useNavigation();
   return (
-    <>
+    <ScreenBackground>
       <Text>HomeDetail</Text>
       <Pressable onPress={() => navigation.pop()}>
         <Text>Back to HomeRoot</Text>
       </Pressable>
-    </>
+    </ScreenBackground>
   );
 }
 
 function OtherRoot() {
-  return <Text>OtherRoot</Text>;
+  return (
+    <ScreenBackground>
+      <Text>OtherRoot</Text>
+    </ScreenBackground>
+  );
 }
 
 const HomeStack = createNativeStackNavigator();
