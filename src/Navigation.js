@@ -2,6 +2,7 @@ import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {Pressable, Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import CustomNavigationDrawer from './components/CustomNavigationDrawer';
 
 const linking = {
   config: {
@@ -86,7 +87,7 @@ function Other() {
 const Drawer = createDrawerNavigator();
 function NavigationContents() {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator drawerContent={CustomNavigationDrawer}>
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Other" component={Other} />
     </Drawer.Navigator>
