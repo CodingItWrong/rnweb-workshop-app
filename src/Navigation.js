@@ -9,7 +9,7 @@ import ScreenBackground from './components/ScreenBackground';
 import CenterColumn from './components/CenterColumn';
 import ButtonGroup from './components/ButtonGroup';
 import {screenWidthMin, useStyleQueries} from 'react-native-style-queries';
-import {breakpointMedium} from './breakpoints';
+import {breakpointMedium, large, useBreakpoint} from './breakpoints';
 
 const linking = {
   config: {
@@ -116,11 +116,15 @@ function Other() {
 
 const Drawer = createDrawerNavigator();
 function NavigationContents() {
+  const breakpoint = useBreakpoint();
+  const drawerType = breakpoint === large ? 'permanent' : 'back';
+
   return (
     <Drawer.Navigator
       drawerContent={CustomNavigationDrawer}
       screenOptions={{
         headerShown: false,
+        drawerType,
       }}
     >
       <Drawer.Screen name="Home" component={Home} />
