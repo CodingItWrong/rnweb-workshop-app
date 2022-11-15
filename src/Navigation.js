@@ -8,6 +8,8 @@ import CustomNavigationBar from './components/CustomNavigationBar';
 import ScreenBackground from './components/ScreenBackground';
 import CenterColumn from './components/CenterColumn';
 import ButtonGroup from './components/ButtonGroup';
+import {screenWidthMin, useStyleQueries} from 'react-native-style-queries';
+import {breakpointMedium} from './breakpoints';
 
 const linking = {
   config: {
@@ -32,16 +34,22 @@ const linking = {
 
 function HomeRoot() {
   const navigation = useNavigation();
+  const styles = useStyleQueries(styleQueries);
   return (
     <ScreenBackground>
       <CenterColumn>
         <Text>HomeRoot</Text>
         <ButtonGroup>
-          <Button mode="outlined">Second</Button>
-          <Button mode="outlined">Third</Button>
+          <Button mode="outlined" style={styles.button}>
+            Second
+          </Button>
+          <Button mode="outlined" style={styles.button}>
+            Third
+          </Button>
           <Button
             mode="contained"
             onPress={() => navigation.navigate('HomeDetail')}
+            style={styles.button}
           >
             Go to Detail
           </Button>
@@ -131,3 +139,14 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+
+const styleQueries = {
+  button: [
+    {
+      marginTop: 10,
+    },
+    screenWidthMin(breakpointMedium, {
+      marginLeft: 10,
+    }),
+  ],
+};
