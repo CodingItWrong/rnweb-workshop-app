@@ -3,6 +3,26 @@ import {Pressable, Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
+const linking = {
+  config: {
+    screens: {
+      Home: {
+        path: '/',
+        screens: {
+          HomeRoot: '',
+          HomeDetail: 'home/detail',
+        },
+      },
+      Other: {
+        path: '/other',
+        screens: {
+          OtherRoot: '',
+        },
+      },
+    },
+  },
+};
+
 function HomeRoot() {
   const navigation = useNavigation();
   return (
@@ -77,7 +97,7 @@ export default function Navigation() {
   // else Safari and Firefox error on too many history API calls. Put
   // any hooks in NavigationContents so this parent doesn't rerender.
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <NavigationContents />
     </NavigationContainer>
   );
