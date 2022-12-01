@@ -1,6 +1,6 @@
 # RN Web Workshop App
 
-The repository used in the ["Building for Web and Mobile with Expo"](https://codingitwrong.com/workshops/rnweb/) workshop at React Advanced 2022.
+The repository used in the ["Building for Web and Mobile with Expo"](https://codingitwrong.com/workshops/rnweb/) workshop at React Day Berlin 2022 and React Advanced London 2022.
 
 This branch is the starting state of the workshop. It includes a basic Expo app with linting and autoformatting added.
 
